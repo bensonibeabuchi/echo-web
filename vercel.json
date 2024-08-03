@@ -1,16 +1,12 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "manage.py",
-        "use": "@vercel/python"
-      }
-    ],
-    "routes": [
-      {
+    "builds": [{
+        "src": "ECHO/wsgi.py",
+        "use": "@vercel/python",
+        "config": { "maxLambdaSize": "15mb", "runtime": "python3.11.3" }
+    }],
+    "routes": [{
         "src": "/(.*)",
-        "dest": "/manage.py"
-      }
-    ]
-  }
+        "dest": "ECHO/wsgi.py"
+    }]
+}
   
